@@ -18,9 +18,9 @@ export class BlogController {
   }
 
   @Get()
-  getAllPosts() {
+  async getAllPosts() {
     console.log('모든 게시글 가져오기');
-    return this.blogService.getAllPosts();
+    return await this.blogService.getAllPosts();
   }
 
   @Post()
@@ -31,9 +31,9 @@ export class BlogController {
   }
 
   @Get('/:id')
-  getPost(@Param('id') id: string) {
+  async getPost(@Param('id') id: string) {
     console.log(`게시글 하나 가져오기`);
-    return this.blogService.getPost(id);
+    return await this.blogService.getPost(id);
   }
 
   @Delete('/:id')
